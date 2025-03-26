@@ -1,7 +1,7 @@
 import { migrate } from "drizzle-orm/postgres-js/migrator";
 import postgres from "postgres";
 import { drizzle } from "drizzle-orm/postgres-js";
-import * as schema from "./schema";
+import * as schema from "./schema.ts";
 import "dotenv/config";
 
 // Get the connection string from environment variables
@@ -18,7 +18,7 @@ async function main() {
   // Create a Postgres client for migrations
   const migrationClient = postgres(connectionString || "", {
     max: 1,
-    ssl: process.env.NODE_ENV === "production" ? { rejectUnauthorized: false } : false,
+    ssl: { rejectUnauthorized: false },
   });
   
   // Create a Drizzle instance for migrations
