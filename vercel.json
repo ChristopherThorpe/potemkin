@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "regions": ["iad1"],
+  "env": {
+    "NEXTAUTH_URL": "${VERCEL_URL}"
+  },
+  "functions": {
+    "src/app/api/**/*": {
+      "maxDuration": 60
+    }
+  }
+}
